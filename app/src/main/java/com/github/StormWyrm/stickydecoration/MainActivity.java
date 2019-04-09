@@ -5,14 +5,14 @@ import android.os.Bundle;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.github.StormWrym.stickydecoration.lib.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         initData();
         recyclerView = findViewById(R.id.rv);
         mainAdapter = new MainAdapter(data);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(5, Color.RED));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,RecyclerView.HORIZONTAL));
         recyclerView.setAdapter(mainAdapter);
 
     }
